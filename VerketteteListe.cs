@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace VerketteteListe
@@ -32,7 +33,7 @@ namespace VerketteteListe
     }
     class VerketteteList<T>
     {
-        Knoten<T> erster;
+        public Knoten<T> erster;
         public VerketteteList()
         {
             ;
@@ -43,6 +44,7 @@ namespace VerketteteListe
         }
         public void einfuegen(int pindex, T pinhalt)
         {
+            //TODO
             int currIndex = 0;
             var newK = new Knoten<T>(pinhalt);
             var currKnoten = this.erster;
@@ -65,6 +67,32 @@ namespace VerketteteListe
                 newK.naechster = this.erster;
                 this.erster = newK;
             }
+        }
+        public void anhaengen(T pinhalt)
+        {
+            if (istLeer())
+            {
+                einfuegenVorne(pinhalt);
+                return;
+            }
+
+            var currKnoten = this.erster;
+            while (currKnoten.naechster != null)
+            {
+                currKnoten = currKnoten.naechster;
+            }
+            currKnoten.naechster = new Knoten<T>(pinhalt);
+        }
+        public void ausgabe()
+        {
+            Console.WriteLine("===");
+            var currKnoten = this.erster;
+            while (currKnoten != null)
+            {
+                Console.WriteLine(currKnoten.gibInhalt());
+                currKnoten = currKnoten.naechster;
+            }
+            Console.WriteLine("===");
         }
     }
 }
