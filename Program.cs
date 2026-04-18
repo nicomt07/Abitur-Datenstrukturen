@@ -12,6 +12,11 @@ public class Program
     static void Test_Verkette_List()
     {
         var k1 = new Knoten<int>(0);
+        var vListe = new VerketteteList<int>();
+        Console.WriteLine(vListe.istLeer());
+        vListe.einfuegenVorne(187);
+        Console.WriteLine(vListe.istLeer());
+
         Console.WriteLine(k1.gibInhalt());
     }
     static void Test_Stapel()
