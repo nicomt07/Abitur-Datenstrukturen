@@ -30,4 +30,14 @@ namespace VerketteteListe
             return this.inhalt;
         }
     }
+    class VerketteteList<T>
+    {
+        Knoten<T> erster;
+        public VerketteteList()
+        {
+            ;
+        }
+
+
+    }
 }

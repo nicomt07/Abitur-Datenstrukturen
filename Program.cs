@@ -6,7 +6,7 @@ public class Program
     {
         Console.WriteLine("Siehe Formelsammlung: 4 Datenstrukturen\n\nStart\n= == = == = == = == = == = == = == = == = == =");
         Test_Verkette_List();
-        Console.WriteLine("Sachen Hier hallo");
+        Console.WriteLine("Sachen Hier");
         Console.WriteLine("\n\n= == = == = == = == = == = == = == = == = == =\nEnde");
     }
     static void Test_Verkette_List()
