@@ -1,11 +1,12 @@
-﻿using VerketteteListe;
+﻿using BinaerbaumNS;
+using VerketteteListe;
 
 public class Program
 {
     static void Main(string[] args)
     {
         Console.WriteLine("Siehe Formelsammlung: 4 Datenstrukturen\n\nStart\n= == = == = == = == = == = == = == = == = == =\n");
-        Test_Verkette_List();
+        Test_Binaerbaum();
         //Console.WriteLine("Sachen Hier");
         Console.WriteLine("\n= == = == = == = == = == = == = == = == = == =\nEnde");
     }
@@ -25,6 +26,9 @@ public class Program
         vListe.ausgabe();
         vListe.anhaengen(8);
         vListe.ausgabe();
+        vListe.ersetzen(5,187);
+        vListe.ausgabe();
+
 
         Console.WriteLine(k1.gibInhalt());
     }
@@ -38,6 +42,30 @@ public class Program
     }
     static void Test_Binaerbaum()
     {
-        ;
+        var Baum = new Binaerbaum<int>();
+        BBKnoten<int> k11 = new BBKnoten<int>(11);
+        BBKnoten<int> k5 = new BBKnoten<int>(5);
+        BBKnoten<int> k15 = new BBKnoten<int>(15);
+        BBKnoten<int> k2 = new BBKnoten<int>(2);
+        BBKnoten<int> k7 = new BBKnoten<int>(7);
+        BBKnoten<int> k14 = new BBKnoten<int>(14);
+        BBKnoten<int> k20 = new BBKnoten<int>(20);
+        BBKnoten<int> k8 = new BBKnoten<int>(8);
+        
+        // Verbindungen
+        k11.linker = k5;
+        k11.rechter = k15;
+
+        k5.linker = k2;
+        k5.rechter = k7;
+
+        k7.rechter = k8;
+
+        k15.linker = k14;
+        k15.rechter = k20;
+        Baum.wurzel = k11;
+        Baum.wurzel.inorder();
+        Console.WriteLine("Batman:\n");
+        Console.WriteLine(Baum.antahlKnoten());
     }
 }
